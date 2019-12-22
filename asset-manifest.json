@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/meeting-manager-app/static/css/main.d9b1d9a1.chunk.css",
-    "main.js": "/meeting-manager-app/static/js/main.3837899d.chunk.js",
-    "main.js.map": "/meeting-manager-app/static/js/main.3837899d.chunk.js.map",
-    "runtime-main.js": "/meeting-manager-app/static/js/runtime-main.5f3f630a.js",
-    "runtime-main.js.map": "/meeting-manager-app/static/js/runtime-main.5f3f630a.js.map",
+    "main.js": "/meeting-manager-app/static/js/main.3417446b.chunk.js",
+    "main.js.map": "/meeting-manager-app/static/js/main.3417446b.chunk.js.map",
+    "runtime-main.js": "/meeting-manager-app/static/js/runtime-main.bdf6da64.js",
+    "runtime-main.js.map": "/meeting-manager-app/static/js/runtime-main.bdf6da64.js.map",
     "static/css/2.64a99b10.chunk.css": "/meeting-manager-app/static/css/2.64a99b10.chunk.css",
-    "static/js/2.f38713b4.chunk.js": "/meeting-manager-app/static/js/2.f38713b4.chunk.js",
-    "static/js/2.f38713b4.chunk.js.map": "/meeting-manager-app/static/js/2.f38713b4.chunk.js.map",
+    "static/js/2.f645b8c7.chunk.js": "/meeting-manager-app/static/js/2.f645b8c7.chunk.js",
+    "static/js/2.f645b8c7.chunk.js.map": "/meeting-manager-app/static/js/2.f645b8c7.chunk.js.map",
     "index.html": "/meeting-manager-app/index.html",
-    "precache-manifest.7e3eb41bab624960518238eabbd6be9c.js": "/meeting-manager-app/precache-manifest.7e3eb41bab624960518238eabbd6be9c.js",
+    "precache-manifest.8617d41438bde6610f746af6e1f44c08.js": "/meeting-manager-app/precache-manifest.8617d41438bde6610f746af6e1f44c08.js",
     "service-worker.js": "/meeting-manager-app/service-worker.js",
     "static/css/2.64a99b10.chunk.css.map": "/meeting-manager-app/static/css/2.64a99b10.chunk.css.map",
     "static/css/main.d9b1d9a1.chunk.css.map": "/meeting-manager-app/static/css/main.d9b1d9a1.chunk.css.map",
-    "static/js/2.f38713b4.chunk.js.LICENSE": "/meeting-manager-app/static/js/2.f38713b4.chunk.js.LICENSE"
+    "static/js/2.f645b8c7.chunk.js.LICENSE": "/meeting-manager-app/static/js/2.f645b8c7.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.5f3f630a.js",
+    "static/js/runtime-main.bdf6da64.js",
     "static/css/2.64a99b10.chunk.css",
-    "static/js/2.f38713b4.chunk.js",
+    "static/js/2.f645b8c7.chunk.js",
     "static/css/main.d9b1d9a1.chunk.css",
-    "static/js/main.3837899d.chunk.js"
+    "static/js/main.3417446b.chunk.js"
   ]
 }

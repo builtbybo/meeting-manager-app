@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/meeting-manager-app/static/css/main.d9b1d9a1.chunk.css",
+    "main.js": "/meeting-manager-app/static/js/main.3837899d.chunk.js",
+    "main.js.map": "/meeting-manager-app/static/js/main.3837899d.chunk.js.map",
+    "runtime-main.js": "/meeting-manager-app/static/js/runtime-main.5f3f630a.js",
+    "runtime-main.js.map": "/meeting-manager-app/static/js/runtime-main.5f3f630a.js.map",
+    "static/css/2.64a99b10.chunk.css": "/meeting-manager-app/static/css/2.64a99b10.chunk.css",
+    "static/js/2.f38713b4.chunk.js": "/meeting-manager-app/static/js/2.f38713b4.chunk.js",
+    "static/js/2.f38713b4.chunk.js.map": "/meeting-manager-app/static/js/2.f38713b4.chunk.js.map",
+    "index.html": "/meeting-manager-app/index.html",
+    "precache-manifest.7e3eb41bab624960518238eabbd6be9c.js": "/meeting-manager-app/precache-manifest.7e3eb41bab624960518238eabbd6be9c.js",
+    "service-worker.js": "/meeting-manager-app/service-worker.js",
+    "static/css/2.64a99b10.chunk.css.map": "/meeting-manager-app/static/css/2.64a99b10.chunk.css.map",
+    "static/css/main.d9b1d9a1.chunk.css.map": "/meeting-manager-app/static/css/main.d9b1d9a1.chunk.css.map",
+    "static/js/2.f38713b4.chunk.js.LICENSE": "/meeting-manager-app/static/js/2.f38713b4.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5f3f630a.js",
+    "static/css/2.64a99b10.chunk.css",
+    "static/js/2.f38713b4.chunk.js",
+    "static/css/main.d9b1d9a1.chunk.css",
+    "static/js/main.3837899d.chunk.js"
+  ]
+}

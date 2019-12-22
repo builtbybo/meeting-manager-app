@@ -1,6 +1,6 @@
 {
   "name": "meet-manage-spa",
-  "homepage" : "http://builtbybo.github.io/meeting-manager",
+  "homepage" : "http://builtbybo.github.io/meeting-manager-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

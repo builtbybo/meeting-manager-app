@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import firebase from './Firebase';
-import AttendeesList from './AttendeesList';
-import { FaUndo, FaRandom } from 'react-icons/fa';
+import React, { Component } from "react";
+import firebase from "./Firebase";
+import AttendeesList from "./AttendeesList";
+import { FaUndo, FaRandom } from "react-icons/fa";
 
 class Attendees extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchQuery: '',
+      searchQuery: "",
       allAttendees: [],
       displayAttendees: []
     };
@@ -20,13 +20,9 @@ class Attendees extends Component {
   componentDidMount() {
     const ref = firebase
       .database()
-      .ref(
-        `meetings/${this.props.userID}/${
-          this.props.meetingID
-        }/attendees`
-      );
+      .ref(`meetings/${this.props.userID}/${this.props.meetingID}/attendees`);
 
-    ref.on('value', snapshot => {
+    ref.on("value", snapshot => {
       let attendees = snapshot.val();
       let attendeesList = [];
       for (let item in attendees) {
@@ -64,23 +60,22 @@ class Attendees extends Component {
   resetQuery() {
     this.setState({
       displayAttendees: this.state.allAttendees,
-      searchQuery: ''
+      searchQuery: ""
     });
   }
 
   render() {
-    const dataFilter = item => item.attendeeName.toLowerCase().match(this.state.searchQuery.toLowerCase()) && true;
-    const filteredAttendees = this.state.displayAttendees.filter(
-      dataFilter
-    );
+    const dataFilter = item =>
+      item.attendeeName
+        .toLowerCase()
+        .match(this.state.searchQuery.toLowerCase()) && true;
+    const filteredAttendees = this.state.displayAttendees.filter(dataFilter);
 
     return (
       <div className="container mt-4">
         <div className="row justify-content-center">
           <div className="col-md-8">
-            <h1 className="font-weight-light text-center">
-              Attendees
-            </h1>
+            <h1 className="font-weight-light text-center">Attendees</h1>
 
             <div className="card bg-light mb-4">
               <div className="card-body text-center">

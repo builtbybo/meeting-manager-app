@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import firebase from './Firebase';
-import {navigate} from '@reach/router';
+import { navigate } from '@reach/router';
 
 class CheckIn extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       displayName: '',
       email: ''
@@ -16,30 +15,31 @@ class CheckIn extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange(e) {
     const itemName = e.target.name;
     const itemValue = e.target.value;
-
     this.setState({ [itemName]: itemValue })
   }
+
   handleSubmit(e) {
     e.preventDefault();
 
     const ref = firebase
       .database()
       .ref(`meetings/${this.props.userID}/${this.props.meetingID}/attendees`);
+
       ref.push({
         attendeeName: this.state.displayName,
         atttendeeEmail: this.state.email,
         star : false
       });
       navigate(`/attendees/${this.props.userID}/${this.props.meetingID}`)
-
   }
 
   render() {
     return (
-      <form className="mt-3" onSubmit={this.handleChange}>
+      <form className="mt-3" onSubmit={this.handleSubmit}>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-6">

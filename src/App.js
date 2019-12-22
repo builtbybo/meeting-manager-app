@@ -1,91 +1,79 @@
-import React, { Component } from 'react';
+// Import React
+import React, { Component } from "react";
 import { Router, navigate } from "@reach/router";
-import firebase from './Firebase';
+import firebase from "./Firebase";
 
-// Styles
-import './App.css';
-
-// Pages
 import Home from "./Home";
+import Welcome from "./Welcome";
+import Navigation from "./Navigation";
 import Login from "./Login";
+import Register from "./Register";
 import Meetings from "./Meetings";
 import CheckIn from "./CheckIn";
 import Attendees from "./Attendees";
-import Register from "./Register";
-import Welcome from './Welcome';
-import Navigation from './Navigation';
-
 
 class App extends Component {
-  constructor(){
-    super()
-      this.state = {
-        user: null,
-        displayName: null,
-        userID: null
-      }
-    
+  constructor() {
+    super();
+    this.state = {
+      user: null,
+      displayName: null,
+      userID: null
+    };
   }
 
-  componentDidMount(){
-      firebase.auth().onAuthStateChanged(FBUser => {
-        if (FBUser) {
-          this.setState({
-            user: FBUser,
-            displayName: FBUser.displayName,
-            userID: FBUser.uid
-          })
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(FBUser => {
+      if (FBUser) {
+        this.setState({
+          user: FBUser,
+          displayName: FBUser.displayName,
+          userID: FBUser.uid
+        });
 
-        const meetingsRef = firebase
-          .database()
-          .ref('meetings/'+ FBUser.uid);
+        const meetingsRef = firebase.database().ref("meetings/" + FBUser.uid);
 
-          meetingsRef.on('value', snapshot => {
-            let meetings = snapshot.val();
-            let meetingsList = [];
+        meetingsRef.on("value", snapshot => {
+          let meetings = snapshot.val();
+          let meetingsList = [];
 
-            for (let item in meetings) {
-              meetingsList.push({
-                meetingID: item,
-                meetingName: meetings[item].meetingName
-              });
-            }
-
-            this.setState({
-              meetings: meetingsList,
-              howManyMeetings: meetingsList.length
+          for (let item in meetings) {
+            meetingsList.push({
+              meetingID: item,
+              meetingName: meetings[item].meetingName
             });
+          }
 
-          })
-        } 
-        else {
-          this.setState({ user : null });
-        }
-      });
-
-
+          this.setState({
+            meetings: meetingsList,
+            howManyMeetings: meetingsList.length
+          });
+        });
+      } else {
+        this.setState({ user: null });
+      }
+    });
   }
 
   registerUser = userName => {
     firebase.auth().onAuthStateChanged(FBUser => {
       FBUser.updateProfile({
         displayName: userName
-      }).then( ()=> {
-          this.setState({
-            user: FBUser,
-            displayName: FBUser.displayName,
-            userID: FBUser.uid
-          });
-          navigate('/meetings')
-      })
-    })
-  }
-  
+      }).then(() => {
+        this.setState({
+          user: FBUser,
+          displayName: FBUser.displayName,
+          userID: FBUser.uid
+        });
+        navigate("/meetings");
+      });
+    });
+  };
+
   logOutUser = e => {
     e.preventDefault();
-    
     this.setState({
-      displayName : null,
+      displayName: null,
       userID: null,
       user: null
     });
@@ -93,20 +81,19 @@ class App extends Component {
     firebase
       .auth()
       .signOut()
-      .then( () => {
-        navigate('/login')
+      .then(() => {
+        navigate("/login");
       });
   };
 
   addMeeting = meetingName => {
-    const ref = firebase
-      .database().ref(`meetings/${this.state.user.uid}`);
-    ref.push({ meetingName : meetingName });
+    const ref = firebase.database().ref(`meetings/${this.state.user.uid}`);
+    ref.push({ meetingName: meetingName });
   };
 
   render() {
     return (
-      <>
+      <div>
         <Navigation user={this.state.user} logOutUser={this.logOutUser} />
         {this.state.user && (
           <Welcome
@@ -114,26 +101,26 @@ class App extends Component {
             logOutUser={this.logOutUser}
           />
         )}
+
         <Router>
           <Home path="/" user={this.state.user} />
           <Login path="/login" />
-          <Meetings 
+          <Meetings
             path="/meetings"
             meetings={this.state.meetings}
-            addMeeting={this.addMeeting} 
-            userID={this.state.userID}  
+            addMeeting={this.addMeeting}
+            userID={this.state.userID}
           />
-          <Attendees 
+          <Attendees
             path="/attendees/:userID/:meetingID"
-            userID={this.state.userID}  
+            adminUser={this.state.userID}
           />
           <CheckIn path="/checkin/:userID/:meetingID" />
-          
           <Register path="/register" registerUser={this.registerUser} />
         </Router>
-      </>
+      </div>
     );
-  };
+  }
 }
 
 export default App;

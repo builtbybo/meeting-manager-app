@@ -1,6 +1,6 @@
 {
   "name": "meeting-manager-app",
-  "homepage" : "http://builtbybo.github.io/meeting-manager-app",
+  "homepage" : "https://meeting-manager.netlify.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
